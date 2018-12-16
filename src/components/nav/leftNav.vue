@@ -62,6 +62,9 @@
           let children = routers[i].children;
           if(children){
             for (let j = 0; j < children.length; j++) {
+              if (children[j].path === cur_path) {
+                break;
+              }
               // 如果该菜单下有子菜单(个数>1且设置的leaf为false才有下拉子菜单)
               if(children[j].children && !children[j].leaf) {
                 let grandChildren = children[j].children;
