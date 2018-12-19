@@ -45,13 +45,14 @@
     name: 'leftNav',
     data () {
       return {
-        collapsed: false
+        collapsed: this.$store.state.collapsed
       }
     },
     methods: {
       //折叠导航栏
       collapse: function () {
         this.collapsed = !this.collapsed;
+        this.$store.state.collapsed = this.collapsed;
       },
       // 左侧导航栏根据当前路径默认打开子菜单（如果当前路由是三级，则二级子菜单默认打开）
       defaultLeftNavOpened () {

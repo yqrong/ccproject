@@ -5,8 +5,8 @@
       <div class="topbar-logo topbar-btn">
         <a href="/"><img src="../assets/logo.png" style="padding-left:8px;"></a>
       </div>
-      <div class="topbar-logos" v-show="!collapsed">
-        <a href="/" style="color: #fff;">车车综合管理</a>
+      <div class="topbar-logos">
+        <a href="/" style="color: #fff;"><span v-show="!$store.state.collapsed">车车综合管理</span></a>
       </div>
       <div class="topbar-title">
         <el-row v-show="$store.state.topNavState==='home'"><!-- 注意：这里就是topNavState作用之处，根据当前路由所在根路由的type值判断显示不同顶部导航菜单 -->
@@ -59,8 +59,7 @@
       return {
         defaultActiveIndex: "/",
         loading: false,
-        nickname: '',
-        collapsed: false
+        nickname: ''
       }
     },
     created() {// 组件创建完后获取数据，
@@ -70,10 +69,6 @@
     methods: {
       handleSelect(index){
         this.defaultActiveIndex = index;
-      },
-      //折叠导航栏
-      collapse () {
-        this.collapsed = !this.collapsed;
       },
       fetchNavData () { // 初始化菜单激活项
         var cur_path = this.$route.path; //获取当前路由
