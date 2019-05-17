@@ -8,7 +8,7 @@
         <i class="iconfont icon-indent" v-show="collapsed" title="展开"></i>
       </div>
       <!--导航菜单-->
-      <el-menu router :collapse="collapsed" ref="leftNavigation">
+      <el-menu :default-active="$route.path" router :collapse="collapsed" ref="leftNavigation">
         <template v-for="(issue,index) in $router.options.routes">
           <template v-if="issue.name === $store.state.leftNavState"><!-- 注意：这里就是leftNavState状态作用之处，当该值与router的根路由的name相等时加载相应菜单组 -->
             <template v-for="(item,index) in issue.children">
